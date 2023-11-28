@@ -10,6 +10,9 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 @SpringBootApplication
 @EnableConfigurationProperties(Credential.class)
 public class VaultDemoApplication {
+	/**
+	 * after dependency injection completed will assigned a object with data from vault server
+	 */
 	@Autowired
 	private Credential credential;
 
