@@ -1,6 +1,7 @@
 # spring-boot-with-vault
 
  -  To configure the HashiCorp vault [click here for vault config demo video](https://drive.google.com/file/d/13YSA6J9TpXaAghP_UYAO1YZ1atlISK60/view?usp=sharing).
+ -  Self prepared docs for [Vault config](https://github.com/DevShivmohan/private-credentials/issues/4).
  -  Data for this project in the below screenshot.
  -  ![image](https://github.com/DevShivmohan/spring-boot-with-vault/assets/72655528/bebf552b-6ed1-4481-8acc-f472b865a173)
  -  To start the vault server with specific token id.
