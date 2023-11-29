@@ -1,28 +1,28 @@
 package com.vault.example;
 
-import com.vault.example.model.Credential;
+import com.vault.example.entity.User;
+import com.vault.example.service.UserService;
 import jakarta.annotation.PostConstruct;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
 @SpringBootApplication
-@EnableConfigurationProperties(Credential.class)
+@AllArgsConstructor
 public class VaultDemoApplication {
-	/**
-	 * after dependency injection completed will assigned a object with data from vault server
-	 */
-	@Autowired
-	private Credential credential;
+	private final UserService userService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(VaultDemoApplication.class, args);
 	}
 
 	@PostConstruct
-	public void testCredentialFromVault(){
-		System.out.println(credential);
+	public void test(){
+		User user=new User();
+		user.setUsername("Shiv");
+		user.setPassword("Shiv");
+		System.out.println(userService.addUser(user));
+//		System.out.println(user);
 	}
 
 }

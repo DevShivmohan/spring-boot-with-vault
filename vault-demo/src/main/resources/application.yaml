@@ -1,0 +1,35 @@
+spring:
+  config:
+    import: vault://
+  application:
+    name: aws
+  cloud:
+    vault:
+      uri: ${VAULT_URI:http://localhost:9010/}
+      reactive:
+        enabled: false
+      authentication: APPROLE
+      app-role:
+        role-id: ${ROLE_ID:f29cb23a-c181-0b81-a327-9434e0f4db8e}
+        secret-id: ${SECRET_ID:618274ad-467c-03cb-189e-a5229a36e30b}
+        role: ${APPLICATION_ROLE:aws}
+        app-role-path: approle/
+      kv:
+        application-name: AWS,MYSQL_DATABASE
+        backend: ${BACK_END:DEV/ALERTS}
+        enabled: true
+      scheme: http
+
+  datasource:
+    name: User-management-system
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver:
+      class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: create
